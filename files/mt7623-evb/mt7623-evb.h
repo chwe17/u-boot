@@ -67,7 +67,7 @@
 #undef  CONFIG_USE_GE2
 
 #ifdef CONFIG_USE_GE1
-/* in case of GMAC1, select one of the following options depending on your hardware */ 
+/* in case of GMAC1, select one of the following options depending on your hardware */
 #undef  GE_MII_FORCE_100
 #undef  GE_RVMII_FORCE_100
 #undef  GE_MII_AN
@@ -75,13 +75,13 @@
 #undef  GE_RGMII_AN
 #define CONFIG_GE1_TRGMII_FORCE_2600 1
 
-/* 
- set the following helper flags and values depending on your choice above:   
+/*
+ set the following helper flags and values depending on your choice above:
 
                               | MAC_TO_100SW_MODE | MAC_TO_100PHY_MODE | MAC_TO_GIGAPHY_MODE | MAC_TO_GIGAPHY_MODE_ADDR | MAC_TO_MT7530_MODE
  ---------------------------------------------------------------------------------------------------------------------------------------------
- GE_MII_FORCE_100             |        1          |                    |                     |                          |     
- GE_RVMII_FORCE_100  		  |        1          |                    |                     |                          |     
+ GE_MII_FORCE_100             |        1          |                    |                     |                          |
+ GE_RVMII_FORCE_100  		  |        1          |                    |                     |                          |
  GE_MII_AN           		  |                   |        1		   |		             |         0x1e		        |
  GE_RGMII_AN                  |                   |     			   |		  1          |         0x1e		        |
  GE_RGMII_FORCE_1000		  |                   |                    |                     |                          |         1
@@ -97,7 +97,7 @@
 #endif  /* CONFIG_USE_GE1 */
 
 #ifdef CONFIG_USE_GE2
-/* in case of GMAC2, select one of the following options depending on your hardware */ 
+/* in case of GMAC2, select one of the following options depending on your hardware */
 #undef  GE_MII_FORCE_100
 #undef  GE_RVMII_FORCE_100
 #undef  GE_MII_AN
@@ -106,18 +106,18 @@
 #undef  GE_RGMII_INTERNAL_P0_AN
 #define GE_RGMII_INTERNAL_P4_AN 1
 
-/* 
- set the following helper flags and values depending on your choice above:   
+/*
+ set the following helper flags and values depending on your choice above:
 
                               | MAC_TO_100SW_MODE | MAC_TO_100PHY_MODE | MAC_TO_GIGAPHY_MODE | MAC_TO_GIGAPHY_MODE_ADDR | MAC_TO_MT7530_MODE
  ---------------------------------------------------------------------------------------------------------------------------------------------
- GE_MII_FORCE_100             |        1          |                    |                     |                          |     
- GE_RVMII_FORCE_100           |        1          |                    |                     |                          |     
+ GE_MII_FORCE_100             |        1          |                    |                     |                          |
+ GE_RVMII_FORCE_100           |        1          |                    |                     |                          |
  GE_MII_AN           		  |                   |        1		   |		             |         0x1f		        |
  GE_RGMII_AN                  |                   |     			   |		  1          |         0x1f		        |
  GE_RGMII_FORCE_1000		  |                   |                    |                     |                          |         1
- GE_RGMII_INTERNAL_P0_AN      |                   |                    |          1          |         0x00             |         
- GE_RGMII_INTERNAL_P4_AN      |                   |                    |          1          |         0x04             |         
+ GE_RGMII_INTERNAL_P0_AN      |                   |                    |          1          |         0x00             |
+ GE_RGMII_INTERNAL_P4_AN      |                   |                    |          1          |         0x04             |
 */
 
 #undef MAC_TO_100SW_MODE
@@ -134,7 +134,7 @@
  **********************************************************************************************/
 #if 1
 /*
- *  Iverson 20140326 : 
+ *  Iverson 20140326 :
  *      We can disable dcache for accessing non-cachable address instead of using mmu page table to provide noncachable address.
  */
 /* Cache */
@@ -150,7 +150,7 @@
  **********************************************************************************************/
 /* Memory layout */
 /* DRAM definition */
-/* 
+/*
  * Iverson 20140521 : We detect ram size automatically.
  *      CONFIG_SYS_SDRAM_SIZE define max uboot size.
  *      The max size that auto detection support is 256MB.
@@ -159,7 +159,7 @@
 #define CONFIG_SYS_SDRAM_BASE		        0x80000000
 #if defined(ON_BOARD_1024Mb_DRAM_COMPONENT)
 #define CONFIG_SYS_SDRAM_SIZE               SZ_128M
-#elif defined(ON_BOARD_2048Mb_DRAM_COMPONENT) 
+#elif defined(ON_BOARD_2048Mb_DRAM_COMPONENT)
 #define CONFIG_SYS_SDRAM_SIZE               SZ_256M
 #elif defined(ON_BOARD_4096Mb_DRAM_COMPONENT)
 #define CONFIG_SYS_SDRAM_SIZE               SZ_512M
@@ -246,9 +246,9 @@
 /****************************** NAND Flash **********************************/
 #elif defined(ON_BOARD_NAND_FLASH_COMPONENT)
 
-#define CONFIG_SYS_MAX_NAND_DEVICE	        1	
+#define CONFIG_SYS_MAX_NAND_DEVICE	        1
 #define CONFIG_SYS_NAND_BASE                NFI_BASE
-#define CONFIG_SYS_MAX_FLASH_SECT			256	
+#define CONFIG_SYS_MAX_FLASH_SECT			256
 #define CONFIG_SYS_MAX_FLASH_BANKS			1
 #define CONFIG_CMD_NAND
 //#define CONFIG_MTD_DEBUG
@@ -297,13 +297,13 @@
 /* SD card is MMC device #1 */
 #define CONFIG_ENV_IS_IN_SD
 #define CONFIG_ENV_SIZE                     SZ_128K
-#define CONFIG_ENV_OFFSET                   0xD2800 
+#define CONFIG_ENV_OFFSET                   0xD2800
 #define CONFIG_SYS_MMC_ENV_DEV              1
 
 
 /************************* No Flash (Really...?) *****************************/
 
-#else  
+#else
 #define CONFIG_ENV_IS_NOWHERE
 #define CONFIG_ENV_SIZE                     SZ_16K
 #endif
@@ -333,7 +333,7 @@
 /********************** Console UART *************************/
 /* Uart baudrate */
 #define CONFIG_BAUDRATE                     115200
- 
+
 /* Console configuration */
 #define CONFIG_SYS_CBSIZE		            1024
 #define CONFIG_SYS_PBSIZE		            (CONFIG_SYS_CBSIZE +		\
@@ -363,7 +363,7 @@
 
 /* boot after 'bootdelay' seconds */
 #define CONFIG_BOOTDELAY 					3
-#define CONFIG_BOOTCOMMAND 					"run bootcmd" 
+#define CONFIG_BOOTCOMMAND 					"run bootcmd"
 
 /* Commands */
 #include <config_cmd_default.h>
@@ -373,8 +373,8 @@
 #define CONFIG_OF_LIBFDT
 #define CONFIG_OF_BOOT_CPU
 
-/* Bootz support */
-#define CONFIG_CMD_BOOTZ
+/* FIT image support */
+#define CONFIG_FIT
 
 /* ATAGs support for bootm/bootz */
 #define CONFIG_SETUP_MEMORY_TAGS
@@ -393,6 +393,6 @@
 #define CONFIG_SYS_HUSH_PARSER
 
 /* Compression */
-//#define CONFIG_LZMA                             
+//#define CONFIG_LZMA
 
 #endif
